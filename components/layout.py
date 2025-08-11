@@ -14,18 +14,28 @@ def create_layout(aside_content=None, main_content=None):
     # Default aside content if none provided
     if aside_content is None:
         aside_content = html.Div([
-            html.H4("Sidebar", style={'margin-bottom': '20px'}),
-            html.P("This is the sidebar area"),
+            html.H4("Navigation", className="md-text-primary"),
             html.Hr(),
-            html.P("Additional sidebar content can go here")
+            html.Div([
+                html.P("Quick links", className="md-text-secondary", style={'margin-bottom': '12px'}),
+                html.Ul([
+                    html.Li(html.A("Getting Started", href="#start", className="md-ripple")),
+                    html.Li(html.A("Documentation", href="#docs", className="md-ripple")),
+                    html.Li(html.A("Settings", href="#settings", className="md-ripple"))
+                ])
+            ])
         ])
     
     # Default main content if none provided
     if main_content is None:
         main_content = html.Div([
-            html.H2("Main Content Area"),
-            html.P("This is the main content area")
-        ])
+            html.H1("Welcome", className="md-text-primary"),
+            html.P("This is your Material Design Dash application", className="md-text-secondary"),
+            html.Div([
+                html.Button("Get Started", className="md-ripple"),
+                html.Button("Learn More", className="md-button-outlined md-ripple", style={'margin-left': '12px'})
+            ], style={'margin-top': '24px'})
+        ], className="md-card")
     
     layout = html.Div([
         # Navbar at the top
@@ -37,11 +47,9 @@ def create_layout(aside_content=None, main_content=None):
             html.Aside([
                 aside_content
             ], style={
-                'width': '250px',
-                'min-height': 'calc(100vh - 60px)',  # Adjust based on navbar height
-                'background-color': '#f8f9fa',
-                'padding': '20px',
-                'border-right': '1px solid #dee2e6',
+                'width': '280px',
+                'min-height': 'calc(100vh - 64px)',  # Adjust based on navbar height
+                'padding': '24px',
                 'box-sizing': 'border-box'
             }),
             
@@ -50,9 +58,10 @@ def create_layout(aside_content=None, main_content=None):
                 main_content
             ], style={
                 'flex': '1',
-                'padding': '20px',
-                'min-height': 'calc(100vh - 60px)',  # Adjust based on navbar height
-                'box-sizing': 'border-box'
+                'padding': '24px',
+                'min-height': 'calc(100vh - 64px)',  # Adjust based on navbar height
+                'box-sizing': 'border-box',
+                'background-color': 'var(--md-background)'
             })
         ], style={
             'display': 'flex',

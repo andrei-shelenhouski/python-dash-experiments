@@ -4,18 +4,22 @@ from components.layout import wrap_with_layout
 
 # Define the aside (sidebar) content for the dashboard page
 aside_content = html.Div([
-    html.H4("Dashboard Tools", style={'color': '#495057', 'margin-bottom': '20px'}),
+    html.H4("Dashboard", className="md-text-primary", style={'margin-bottom': '20px'}),
     html.Div([
-        html.H5("Widgets", style={'color': '#6c757d', 'margin-bottom': '10px'}),
+        html.H5("Tools", className="md-text-secondary", style={'margin-bottom': '12px'}),
         html.Ul([
-            html.Li("Text Input"),
-            html.Li("Charts (coming soon)"),
-            html.Li("Tables (coming soon)")
-        ], style={'list-style-type': 'none', 'padding': '0', 'margin-bottom': '20px'}),
+            html.Li(html.A("📊 Analytics", href="#analytics", className="md-ripple")),
+            html.Li(html.A("📈 Reports", href="#reports", className="md-ripple")),
+            html.Li(html.A("⚙️ Settings", href="#settings", className="md-ripple")),
+            html.Li(html.A("👤 Profile", href="#profile", className="md-ripple"))
+        ]),
         
-        html.H5("Settings", style={'color': '#6c757d', 'margin-bottom': '10px'}),
+        html.Hr(),
+        
+        html.H5("Preferences", className="md-text-secondary", style={'margin-bottom': '12px'}),
         html.Div([
-            html.Label("Theme:", style={'display': 'block', 'margin-bottom': '5px'}),
+            html.Label("Theme:", className="md-text-secondary", 
+                      style={'display': 'block', 'margin-bottom': '8px', 'font-size': '14px'}),
             dcc.Dropdown(
                 id='theme-dropdown',
                 options=[
@@ -23,103 +27,79 @@ aside_content = html.Div([
                     {'label': 'Dark', 'value': 'dark'}
                 ],
                 value='light',
-                style={'margin-bottom': '15px'}
+                style={'margin-bottom': '16px', 'font-size': '14px'}
             ),
             
-            html.Label("Auto-refresh:", style={'display': 'block', 'margin-bottom': '5px'}),
+            html.Label("Notifications:", className="md-text-secondary", 
+                      style={'display': 'block', 'margin-bottom': '8px', 'font-size': '14px'}),
             dcc.Checklist(
-                id='auto-refresh',
-                options=[{'label': 'Enable', 'value': 'enabled'}],
-                value=[]
+                id='notifications',
+                options=[
+                    {'label': 'Email alerts', 'value': 'email'},
+                    {'label': 'Push notifications', 'value': 'push'}
+                ],
+                value=['email'],
+                style={'font-size': '14px'}
             )
-        ])
+        ], className="md-card", style={'padding': '16px'})
     ])
 ])
 
 # Define the main content for the dashboard page
 main_content = html.Div([
-    html.H1("📊 Dashboard", style={'color': '#212529', 'margin-bottom': '30px'}),
+    html.Div([
+        html.H1("📊 Material Dashboard", className="md-text-primary"),
+        html.P("Your modern analytics dashboard", className="md-text-secondary", 
+               style={'font-size': '18px', 'margin-bottom': '32px'})
+    ], className="md-card"),
     
+    # Stats cards
     html.Div([
         html.Div([
-            html.H3("Interactive Text Input", style={'color': '#495057', 'margin-bottom': '15px'}),
-            html.P("Type something in the input below to see real-time updates:"),
-            dcc.Input(
-                id='input-text', 
-                type='text', 
-                value='Type here',
-                placeholder='Enter your text...',
-                style={
-                    'width': '100%',
-                    'padding': '12px',
-                    'border': '1px solid #ced4da',
-                    'border-radius': '4px',
-                    'font-size': '16px',
-                    'margin-bottom': '20px'
-                }
-            ),
-            html.Div(
-                id='output-text',
-                style={
-                    'padding': '15px',
-                    'background-color': '#f8f9fa',
-                    'border': '1px solid #e9ecef',
-                    'border-radius': '4px',
-                    'min-height': '50px',
-                    'font-family': 'monospace'
-                }
-            )
-        ], style={
-            'background-color': 'white',
-            'padding': '30px',
-            'border-radius': '8px',
-            'box-shadow': '0 2px 4px rgba(0,0,0,0.1)',
-            'margin-bottom': '30px'
-        }),
+            html.Div([
+                html.H3("1,234", className="md-text-primary", style={'margin': '0', 'font-size': '2rem'}),
+                html.P("Active Users", className="md-text-secondary", style={'margin': '8px 0 0 0'})
+            ], style={'text-align': 'center'}),
+            html.Div("📈", style={'font-size': '24px', 'position': 'absolute', 'top': '16px', 'right': '16px'})
+        ], className="md-card md-elevation-2", style={'position': 'relative', 'margin': '8px'}),
         
         html.Div([
-            html.H3("Quick Stats", style={'color': '#495057', 'margin-bottom': '15px'}),
             html.Div([
-                html.Div([
-                    html.H4("42", style={'color': '#007bff', 'margin': '0'}),
-                    html.P("Active Users", style={'margin': '5px 0 0 0', 'color': '#6c757d'})
-                ], style={
-                    'text-align': 'center',
-                    'padding': '20px',
-                    'background-color': '#f8f9fa',
-                    'border-radius': '4px',
-                    'flex': '1',
-                    'margin-right': '15px'
-                }),
-                html.Div([
-                    html.H4("1,234", style={'color': '#28a745', 'margin': '0'}),
-                    html.P("Total Visits", style={'margin': '5px 0 0 0', 'color': '#6c757d'})
-                ], style={
-                    'text-align': 'center',
-                    'padding': '20px',
-                    'background-color': '#f8f9fa',
-                    'border-radius': '4px',
-                    'flex': '1',
-                    'margin-right': '15px'
-                }),
-                html.Div([
-                    html.H4("98%", style={'color': '#ffc107', 'margin': '0'}),
-                    html.P("Uptime", style={'margin': '5px 0 0 0', 'color': '#6c757d'})
-                ], style={
-                    'text-align': 'center',
-                    'padding': '20px',
-                    'background-color': '#f8f9fa',
-                    'border-radius': '4px',
-                    'flex': '1'
-                })
-            ], style={'display': 'flex'})
-        ], style={
-            'background-color': 'white',
-            'padding': '30px',
-            'border-radius': '8px',
-            'box-shadow': '0 2px 4px rgba(0,0,0,0.1)'
-        })
-    ])
+                html.H3("98.5%", className="md-text-primary", style={'margin': '0', 'font-size': '2rem'}),
+                html.P("Uptime", className="md-text-secondary", style={'margin': '8px 0 0 0'})
+            ], style={'text-align': 'center'}),
+            html.Div("⚡", style={'font-size': '24px', 'position': 'absolute', 'top': '16px', 'right': '16px'})
+        ], className="md-card md-elevation-2", style={'position': 'relative', 'margin': '8px'}),
+        
+        html.Div([
+            html.Div([
+                html.H3("€12.4k", className="md-text-primary", style={'margin': '0', 'font-size': '2rem'}),
+                html.P("Revenue", className="md-text-secondary", style={'margin': '8px 0 0 0'})
+            ], style={'text-align': 'center'}),
+            html.Div("💰", style={'font-size': '24px', 'position': 'absolute', 'top': '16px', 'right': '16px'})
+        ], className="md-card md-elevation-2", style={'position': 'relative', 'margin': '8px'})
+    ], style={'display': 'grid', 'grid-template-columns': 'repeat(auto-fit, minmax(200px, 1fr))', 'gap': '16px', 'margin-bottom': '24px'}),
+    
+    # Interactive section
+    html.Div([
+        html.H2("🔧 Interactive Demo", className="md-text-primary"),
+        html.P("Try the Material Design input field below:", className="md-text-secondary"),
+        dcc.Input(
+            id='input-text', 
+            type='text', 
+            value='Type here',
+            placeholder='Enter your message...',
+            style={'width': '100%', 'margin-bottom': '16px'}
+        ),
+        html.Div(
+            id='output-text',
+            className="md-card md-elevation-1",
+            style={'min-height': '60px', 'padding': '16px', 'font-family': 'monospace', 'background-color': 'var(--md-surface)'}
+        )
+    ], className="md-card"),
+    
+    # Floating Action Button
+    html.Button("➕", className="md-fab", title="Add new item")
 ])
 
 @app.callback(

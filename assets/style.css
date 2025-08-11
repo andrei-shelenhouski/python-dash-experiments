@@ -1,28 +1,36 @@
-/* Material Design CSS for Dash Layout */
+/* Material Design 3 CSS for Dash Layout */
 
-/* Material Design Color Palette */
+/* Material Design 3 Color Palette - Cyan Primary */
 :root {
-    --md-primary: #1976d2;
-    --md-primary-dark: #1565c0;
-    --md-primary-light: #42a5f5;
-    --md-secondary: #03dac6;
-    --md-secondary-dark: #018786;
-    --md-background: #fafafa;
+    --md-primary: #00bcd4;
+    --md-primary-dark: #0097a7;
+    --md-primary-light: #4dd0e1;
+    --md-secondary: #ff5722;
+    --md-secondary-dark: #d84315;
+    --md-secondary-light: #ff8a65;
+    --md-tertiary: #9c27b0;
+    --md-background: #fefbff;
     --md-surface: #ffffff;
-    --md-error: #b00020;
+    --md-surface-variant: #f4f1f5;
+    --md-error: #ba1a1a;
     --md-on-primary: #ffffff;
-    --md-on-secondary: #000000;
-    --md-on-background: #000000;
-    --md-on-surface: #000000;
+    --md-on-secondary: #ffffff;
+    --md-on-background: #1c1b1f;
+    --md-on-surface: #1c1b1f;
+    --md-on-surface-variant: #49454f;
     --md-on-error: #ffffff;
-    --md-text-primary: rgba(0, 0, 0, 0.87);
-    --md-text-secondary: rgba(0, 0, 0, 0.6);
-    --md-text-disabled: rgba(0, 0, 0, 0.38);
-    --md-divider: rgba(0, 0, 0, 0.12);
-    --md-shadow-1: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-    --md-shadow-2: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
-    --md-shadow-4: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
-    --md-shadow-8: 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12);
+    --md-text-primary: rgba(28, 27, 31, 0.87);
+    --md-text-secondary: rgba(28, 27, 31, 0.6);
+    --md-text-disabled: rgba(28, 27, 31, 0.38);
+    --md-divider: rgba(28, 27, 31, 0.12);
+    --md-outline: #79747e;
+    --md-outline-variant: #cac4cf;
+    /* Material Design 3 Elevation Tokens */
+    --md-shadow-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --md-shadow-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --md-shadow-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    --md-shadow-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+    --md-shadow-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 /* Reset and base styles */

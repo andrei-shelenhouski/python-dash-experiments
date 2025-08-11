@@ -1,0 +1,118 @@
+/* Custom CSS for the Dash layout */
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navigation hover effects */
+nav a:hover {
+    background-color: #f8f9fa !important;
+    color: #0056b3 !important;
+}
+
+/* Sidebar styles */
+aside {
+    scrollbar-width: thin;
+    scrollbar-color: #6c757d #f8f9fa;
+}
+
+aside::-webkit-scrollbar {
+    width: 6px;
+}
+
+aside::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+aside::-webkit-scrollbar-thumb {
+    background: #6c757d;
+    border-radius: 3px;
+}
+
+aside::-webkit-scrollbar-thumb:hover {
+    background: #495057;
+}
+
+/* Sidebar list styles */
+aside ul {
+    margin: 0;
+}
+
+aside ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+aside ul li:last-child {
+    border-bottom: none;
+}
+
+aside ul li a:hover {
+    color: #0056b3 !important;
+    text-decoration: underline;
+}
+
+/* Button hover effects */
+button:hover {
+    background-color: #0056b3 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Input focus styles */
+input:focus {
+    outline: none;
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    /* Stack layout vertically on mobile */
+    .main-container {
+        flex-direction: column !important;
+    }
+    
+    aside {
+        width: 100% !important;
+        min-height: auto !important;
+        border-right: none !important;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    main {
+        min-height: auto !important;
+    }
+    
+    /* Adjust navbar padding on mobile */
+    nav {
+        padding: 10px 15px !important;
+    }
+    
+    nav div {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    
+    nav a {
+        margin: 5px 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
